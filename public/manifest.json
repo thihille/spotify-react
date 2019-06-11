@@ -1,0 +1,16 @@
+{
+  "short_name": "Spotify",
+  "name": "A lab to show integration with Spotify Api",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/reactfy/assets/img/favicon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./",
+  "display": "standalone",
+  "theme_color": "#000",
+  "background_color": "#000"
+}

@@ -1,0 +1,1 @@
+export const resolvePath = (path) => `${process.env.PUBLIC_URL}${path}`;
