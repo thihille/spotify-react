@@ -14,6 +14,9 @@ export const InputBuscar = styled(Input)
     `
   }
 `;
+export const TituloBusca = styled.label `
+  ${props => props.theme.fontesProjeto.labelBusca}
+`
 
 class Busca extends Component {
   constructor(props){

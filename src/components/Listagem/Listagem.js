@@ -12,12 +12,10 @@ const Wrapper = styled.div`
   `}
 `;
 
-const RegularLabel = styled(Label)`
-  font-size: ${props => props.theme.fontSize.regular};
-  margin-top: 45px;
-  margin-bottom: 10px;
-  margin-left: 3px;
-  color: white;
+const Rotulo = styled.span`
+  ${props => props.theme.fontesProjeto.resultadoBusca}
+  padding:10px 0;
+  display:block;
   ${media.tablet`
     margin-top: 20px;
     margin-bottom: 0;
@@ -30,11 +28,11 @@ class Listagem extends Component {
 
     return albums.items.length > 0 ? (
       <div>
-        <RegularLabel>Resultados encontrados para "{query}"</RegularLabel>
+        <Rotulo>Resultados encontrados para "{query}"</Rotulo>
         <div className="search__list">
           {this.props.albums.items.map(item => {
             return (
-              <Link to={`/album/${item.id}`} key={item.id}>
+              <Link to={`/album/${item.id}`} key={item.id} style={{textDecoration: 'none'}}>
                 <div>
                   <img src={item.images[1].url} width={200} height={200} />
                   <h4>
@@ -50,8 +48,8 @@ class Listagem extends Component {
         </div>
       </div>
     ) : (
-        <span />
-      );
+      <span />
+    );
   }
 }
 
