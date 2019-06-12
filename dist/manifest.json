@@ -1,0 +1,16 @@
+{
+  "short_name": "Spotify React",
+  "name": "Carregando albuns e faixas com api",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/spotify-react/assets/img/favicon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./",
+  "display": "standalone",
+  "theme_color": "#000",
+  "background_color": "#000"
+}

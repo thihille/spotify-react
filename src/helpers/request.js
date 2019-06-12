@@ -5,13 +5,18 @@ class Conectar {
   constructor(){
 
     const authorization = JSON.parse(localStorage.getItem('authorization'));
-    const url = process.env.REACT_APP_SPOTIFY_API_BASE_URL;
-    const header = `Bearer ${authorization.access_token}`;
+    if (typeof authorization !== 'undefined' && authorization !== null){
 
-    this.request = axios.create({
-      baseURL: url,
-      headers: {'Authorization': header}
-    });
+      const url = process.env.REACT_APP_SPOTIFY_API_BASE_URL;
+      const header = `Bearer ${authorization.access_token}`;
+  
+      this.request = axios.create({
+        baseURL: url,
+        headers: {'Authorization': header}
+      });
+      
+    }
+    
     
   }
 
