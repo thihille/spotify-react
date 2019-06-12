@@ -69,7 +69,11 @@ class Autenticacao {
       return extractQueryString(buscarToken);
     }else{
       const authorization = localStorage.getItem("authorization");
-      return JSON.parse(authorization);
+      if (typeof authorization !== 'undefined' && authorization !== null){
+        return JSON.parse(authorization);
+      }else{
+        return 0;
+      }
     }
   };
 }
