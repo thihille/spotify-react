@@ -10,7 +10,11 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ fetch }, dispatch);
-}
-
+  return bindActionCreators(
+    {
+      fetch
+    },
+    dispatch
+  );
+};
 export default connect(mapStateToProps,mapDispatchToProps)(Busca);

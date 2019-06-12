@@ -20,7 +20,7 @@ class Busca extends Component {
     super(props);
 
     this.state = {
-      query: this.props.query
+      query: this.props.query || ''
     }
   }
 
@@ -36,14 +36,13 @@ class Busca extends Component {
     return (
       <div>
         <label>Busque por artistas, álbuns ou músicas</label>
-        <InputBuscar placeholder="Comece a escrever..." onChange={this.search} type="search" value={this.state.query}/>
-
+        <InputBuscar placeholder="Comece a escrever..." onChange={this.buscar} type="search" value={this.state.query} />
+        {console.log(this.props.albums)}
         {
           this.props.albums.items.length > 0 ? (
             <Listagem albums={this.props.albums} query={this.state.query} />
           ) : this.state.query === 0 ? 'Album favorito' : <p>Nenhum resultado encontrado</p>
         }
-
       </div>
     )
   }

@@ -5,7 +5,7 @@ export const buscaReducer = (
       albums: { items: [] }
   }, action) => {
   switch (action.type) {
-      case 'BUSCA_SUCCESSO':
+      case 'BUSCA_SUCESSO':
           state.cache.push({ query: action.query, payload: action.payload });
           return {
               ...state,

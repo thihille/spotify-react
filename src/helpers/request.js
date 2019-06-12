@@ -5,9 +5,12 @@ class Conectar {
   constructor(){
 
     const authorization = JSON.parse(localStorage.getItem('authorization'));
-    this.authorization ? request.defaults.headers.common["Authorization"] = `Bearer ${authorization.access_token}` : '';
+    const url = process.env.REACT_APP_SPOTIFY_API_BASE_URL;
+    const header = `Bearer ${authorization.access_token}`;
+
     this.request = axios.create({
-      baseURL: process.env.REACT_APP_SPOTIFY_API_BASE_URL,
+      baseURL: url,
+      headers: {'Authorization': header}
     });
     
   }
@@ -20,7 +23,7 @@ class Conectar {
     return this.request.get(`albums/${id}`);
   }
 
-  buscarAudioDoAlbum(id){
+  buscarMusicas(id){
     return this.request.get(`albums/${id}/tracks`);
   }
 }

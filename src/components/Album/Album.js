@@ -6,6 +6,7 @@ import { Label, media } from "../../style";
 // import BackButton from "../BackButton";
 import { withRouter } from "react-router-dom";
 import { resolvePath } from "../../helpers/pathHelper";
+import Musicas from '../Musicas';
 
 const notFoundPath = resolvePath('/assets/images/not-found.png');
 
@@ -120,7 +121,7 @@ class Album extends Component {
               </small>
             </p>
           </div>
-          {/* {id ? <AlbumTrackList albumId={id} /> : <span />} */}
+          {<Musicas albumId={id} />}
         </div>
       </div>
     );

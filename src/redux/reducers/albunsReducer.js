@@ -1,7 +1,7 @@
 export const albunsReducer = (
   state = {}, action) => {
   switch (action.type) {
-      case 'FETCH_ALBUM_BY_ID_SUCCESS':
+      case 'FETCH_ALBUM_BY_ID_SUCESSO':
           return {
               ...state,
               ...action.payload,
@@ -9,7 +9,7 @@ export const albunsReducer = (
               loading: false
           }
 
-      case 'FETCH_ALBUM_BY_ID_ERROR':
+      case 'FETCH_ALBUM_BY_ID_ERRO':
           return {
               ...state,
               reason: action.reason,
@@ -22,7 +22,7 @@ export const albunsReducer = (
               loading: true
           }
 
-      case 'FETCH_TRACK_BY_ALBUM_ID_SUCCESS':
+      case 'FETCH_TRACK_BY_ALBUM_ID_SUCESSO':
           return {
               ...state,
               ...action.payload,
@@ -35,7 +35,7 @@ export const albunsReducer = (
               loading: true
           }
 
-      case 'FETCH_TRACK_BY_ALBUM_ID_ERROR':
+      case 'FETCH_TRACK_BY_ALBUM_ID_ERRO':
           return {
               ...state,
               reason: action.reason,

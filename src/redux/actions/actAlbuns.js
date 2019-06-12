@@ -1,8 +1,8 @@
 import Conectar from '../../helpers/request';
 
-export const fetchAlbumByIdSuccesso = (payload, query) => {
+export const fetchAlbumByIdSucesso = (payload, query) => {
   return {
-    type: "FETCH_ALBUM_BY_ID_SUCCESSO",
+    type: "FETCH_ALBUM_BY_ID_SUCESSO",
     payload,
     query
   };
@@ -21,9 +21,9 @@ export const fetchAlbumByIdErro = reason => {
   };
 };
 
-export const fetchTrackByAlbumIdSuccesso = (payload, query) => {
+export const fetchTrackByAlbumIdSucesso = (payload, query) => {
   return {
-    type: "FETCH_TRACK_BY_ALBUM_ID_SUCCESSO",
+    type: "FETCH_TRACK_BY_ALBUM_ID_SUCESSO",
     payload,
     query
   };
@@ -58,11 +58,12 @@ export const buscarAlbum = id => {
 
     api
       .buscarAlbum(id)
-      .then(result => {
-        dispatch(fetchAlbumByIdSuccesso(result.data, id));
+      .then(res => {
+        // console.log(res);
+        dispatch(fetchAlbumByIdSucesso(res.data, id));
       })
-      .catch(reason => {
-        dispatch(fetchAlbumByIdErro(reason));
+      .catch(erro => {
+        dispatch(fetchAlbumByIdErro(erro));
       });
   };
 };
@@ -71,13 +72,16 @@ export const buscarAudioDoAlbum = id => {
   return dispatch => {
     const api = new Conectar();
 
-    api
-      .buscarAudioDoAlbum(id)
-      .then(result => {
-        dispatch(fetchTrackByAlbumIdSuccesso(result.data, id));
-      })
-      .catch(reason => {
-        dispatch(fetchTrackByAlbumIdErro(reason));
-      });
+    if(id !== undefined){
+      api
+        .buscarMusicas(id)
+        .then(res => {
+          dispatch(fetchTrackByAlbumIdSucesso(res.data, id));
+        })
+        .catch(erro => {
+          dispatch(fetchTrackByAlbumIdErro(erro));
+        });
+
+    }
   };
 };
